@@ -1,0 +1,229 @@
+/* C:\Users\Aaron Hope\Desktop\kriworth project\frontend\src\components\Footer.css */
+/* Footer Styles - Krisworth Growth Solutions */
+.footer {
+  background: linear-gradient(135deg, #020617 0%, #06031a 100%);
+  color: #ffffff;
+  padding: 4rem 0 0 0;
+  margin-top: auto;
+  position: relative;
+  border-top: 1px solid rgba(216, 125, 74, 0.2);
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #D87D4A, #fbaf85, #D87D4A);
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+/* Brand Section */
+.footer-brand {
+  max-width: 300px;
+}
+
+.footer-logo {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin-bottom: 1.25rem;
+  display: inline-block;
+}
+
+.footer-logo span {
+  background: linear-gradient(135deg, #D87D4A 0%, #fbaf85 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 700;
+}
+
+.footer-brand p {
+  color: #94a3b8;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  font-size: 0.9rem;
+}
+
+.footer-tagline {
+  color: #D87D4A !important;
+  font-weight: 600;
+  font-size: 1rem !important;
+  letter-spacing: 1px;
+}
+
+/* Footer Columns */
+.footer-col h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+  position: relative;
+  display: inline-block;
+}
+
+.footer-col h4::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: linear-gradient(90deg, #D87D4A, #fbaf85);
+  border-radius: 2px;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-col ul li a {
+  color: #94a3b8;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  display: inline-block;
+}
+
+.footer-col ul li a:hover {
+  color: #D87D4A;
+  transform: translateX(5px);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  border-top: 1px solid rgba(148, 163, 184, 0.1);
+  padding: 1.75rem 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.footer-bottom .inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-bottom p {
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+
+.footer-bottom .tagline {
+  color: #fbaf85;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  
+  .footer-brand {
+    grid-column: span 2;
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  .footer-col h4::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .footer-col {
+    text-align: center;
+  }
+  
+  .footer-col ul li a:hover {
+    transform: translateX(0) scale(1.05);
+  }
+}
+
+@media (max-width: 640px) {
+  .footer {
+    padding: 3rem 0 0 0;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .footer-brand {
+    grid-column: span 1;
+  }
+  
+  .footer-bottom .inner {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-col h4::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* Animation for hover effects */
+.footer-col ul li a {
+  position: relative;
+}
+
+.footer-col ul li a::before {
+  content: '→';
+  position: absolute;
+  left: -20px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  color: #D87D4A;
+}
+
+.footer-col ul li a:hover::before {
+  opacity: 1;
+  left: -18px;
+}
+
+/* Dark mode enhancements */
+@media (prefers-color-scheme: dark) {
+  .footer {
+    background: linear-gradient(135deg, #020617 0%, #030014 100%);
+  }
+}
+
+/* Print styles */
+@media print {
+  .footer {
+    background: none;
+    color: #000;
+    border-top: 1px solid #ccc;
+  }
+  
+  .footer-logo span {
+    background: none;
+    color: #000;
+  }
+}

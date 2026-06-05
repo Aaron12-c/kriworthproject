@@ -1,0 +1,660 @@
+:root {
+  /* EDIT: Brand Colors - Modify these to change theme */
+  --navy: #0A1628;
+  --navy-rgb: 10, 22, 40;
+  --navy2: #162952;
+  --teal: #0B7A6E;
+  --teal-l: #13A494;
+  --teal-ll: #D8F0EE;
+  --white: #FFFFFF;
+  --white-rgb: 255, 255, 255;
+  
+  
+  /* EDIT: Animation Speeds (in seconds) */
+  --transition-fast: 0.2s;
+  --transition-normal: 0.3s;
+  --transition-slow: 0.4s;
+}
+
+/* ============================================ */
+/* BASE NAVBAR - TRANSPARENT WITH GLASS EFFECT */
+/* ============================================ */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  /* Matches hero section gradient background */
+  background: linear-gradient(135deg, rgba(10, 22, 40, 0.95) 0%, rgba(22, 41, 82, 0.95) 100%);
+  backdrop-filter: blur(10px);
+  padding: 0.75rem 5%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  transition: all var(--transition-normal) cubic-bezier(0.4, 0, 0.2, 1);
+  border-bottom: 2px solid var(--teal); /* Green divider instead of white */
+}
+
+/* Remove hover effect that changes background */
+.navbar:hover {
+  background: linear-gradient(135deg, rgba(10, 22, 40, 0.95) 0%, rgba(22, 41, 82, 0.95) 100%);
+}
+
+/* Scrolled state - more opaque matching hero overlay */
+.navbar.scrolled {
+  background: linear-gradient(135deg, rgba(10, 22, 40, 0.98) 0%, rgba(22, 41, 82, 0.98) 100%);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+  height: 70px;
+  border-bottom: 2px solid var(--teal-l); /* Lighter green when scrolled */
+}
+
+/* Remove scrolled hover effect */
+.navbar.scrolled:hover {
+  background: linear-gradient(135deg, rgba(10, 22, 40, 0.98) 0%, rgba(22, 41, 82, 0.98) 100%);
+}
+
+/* EDIT: Container max-width (adjust for different screen sizes) */
+.navbar-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ============================================ */
+/* LOGO STYLES - EDIT FONTS AND SIZES HERE */
+/* ============================================ */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 1001;
+}
+
+/* EDIT: Logo image size - Made larger and bolder */
+.logo-image {
+  height: 55px;
+  width: auto;
+  object-fit: contain;
+  transition: transform var(--transition-normal);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.logo-image:hover {
+  transform: scale(1.05);
+}
+
+.logo-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.logo-main {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+/* EDIT: Logo text size and weight - Made bolder */
+.logo-text {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.logo-dot {
+  color: var(--teal-l);
+  font-size: 22px;
+  font-weight: 800;
+}
+
+/* EDIT: Tagline text styling */
+.logo-tagline {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--teal-l);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 2px;
+  opacity: 0.9;
+}
+
+/* ============================================ */
+/* NAVIGATION MENU - EDIT GAPS AND COLORS */
+/* ============================================ */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-left: auto;
+  margin-right: 24px;
+}
+
+/* EDIT: Link colors and hover effects - removed gray */
+.nav-link {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  transition: all var(--transition-fast) ease;
+  cursor: pointer;
+  padding: 8px 0;
+  position: relative;
+  background: transparent; /* Remove any background */
+  -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+}
+
+/* Remove any hover background */
+.nav-link:hover {
+  background: transparent;
+  color: var(--white);
+}
+
+/* Remove gray highlight on click */
+.nav-link:active {
+  background: transparent;
+  color: var(--teal-l);
+}
+
+/* EDIT: Underline effect on hover */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--teal-l);
+  transition: all var(--transition-normal) ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link.active {
+  color: var(--teal-l);
+}
+
+.nav-link.active::after {
+  width: 100%;
+  background: var(--teal-l);
+}
+
+/* ============================================ */
+/* DROPDOWN MENU - EDIT DROPDOWN STYLES */
+/* ============================================ */
+.nav-dropdown {
+  position: relative;
+}
+
+.dropdown-trigger {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  transition: color var(--transition-fast);
+  padding: 8px 0;
+  background: transparent;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.dropdown-trigger:hover {
+  background: transparent;
+  color: var(--white);
+}
+
+.dropdown-trigger:active {
+  background: transparent;
+}
+
+.dropdown-trigger::after {
+  content: '▼';
+  font-size: 8px;
+  transition: transform var(--transition-normal);
+}
+
+.nav-dropdown:hover .dropdown-trigger::after {
+  transform: rotate(180deg);
+}
+
+/* EDIT: Dropdown menu background and positioning */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(var(--navy-rgb), 0.95);
+  backdrop-filter: blur(10px);
+  min-width: 220px;
+  border-radius: 12px;
+  padding: 12px 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all var(--transition-normal) ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(19, 164, 148, 0.3);
+}
+
+.nav-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* EDIT: Dropdown item styling */
+.dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  background: transparent;
+}
+
+.dropdown-menu a:hover {
+  background: rgba(19, 164, 148, 0.1);
+  color: var(--teal-l);
+  padding-left: 24px;
+}
+
+.dropdown-menu a:active {
+  background: transparent;
+}
+
+/* ============================================ */
+/* ACTION BUTTONS - EDIT BUTTON STYLES */
+/* ============================================ */
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* EDIT: Icon button styling */
+.icon-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--white);
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+}
+
+.icon-btn:hover {
+  background: rgba(19, 164, 148, 0.15);
+  border-color: var(--teal-l);
+  transform: translateY(-2px);
+}
+
+.icon-btn:active {
+  background: rgba(19, 164, 148, 0.2);
+}
+
+/* EDIT: Apply button styling */
+.apply-button {
+  background: linear-gradient(135deg, var(--teal) 0%, #085041 100%);
+  color: var(--white);
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+.apply-button:hover {
+  background: linear-gradient(135deg, var(--teal) 0%, #085041 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(11, 122, 110, 0.3);
+}
+
+/* Remove gray highlight on button click */
+.apply-button:active {
+  transform: scale(0.98);
+  background: linear-gradient(135deg, #085041 0%, #063529 100%);
+}
+
+/* EDIT: Button shine effect (remove if not wanted) */
+.apply-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.apply-button:hover::before {
+  left: 100%;
+}
+
+/* ============================================ */
+/* MOBILE MENU - HAMBURGER STYLES */
+/* ============================================ */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  background: transparent;
+  padding: 10px;
+  border-radius: 8px;
+  transition: all var(--transition-normal);
+  z-index: 1001;
+  border: none;
+}
+
+.hamburger:hover {
+  background: rgba(19, 164, 148, 0.1);
+}
+
+.hamburger:active {
+  background: rgba(19, 164, 148, 0.15);
+}
+
+.bar {
+  width: 22px;
+  height: 2px;
+  background: var(--white);
+  margin: 3px 0;
+  transition: all var(--transition-normal);
+}
+
+/* EDIT: Hamburger animation on active */
+.bar.active:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+  background: var(--teal-l);
+}
+
+.bar.active:nth-child(2) {
+  opacity: 0;
+}
+
+.bar.active:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+  background: var(--teal-l);
+}
+
+/* Mobile overlay backdrop */
+.mobile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ============================================ */
+/* RESPONSIVE BREAKPOINTS - EDIT AS NEEDED */
+/* ============================================ */
+
+/* Tablet and Mobile (968px and below) */
+@media (max-width: 968px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    width: 100%;
+    max-width: 320px;
+    height: calc(100vh - 80px);
+    background: rgba(var(--navy-rgb), 0.98);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px 5%;
+    gap: 20px;
+    transition: left var(--transition-normal) ease;
+    margin: 0;
+    overflow-y: auto;
+    border-right: 1px solid var(--teal);
+  }
+
+  .navbar.scrolled .nav-menu {
+    top: 70px;
+    height: calc(100vh - 70px);
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .nav-link {
+    font-size: 16px;
+    width: 100%;
+    padding: 12px 0;
+  }
+
+  .nav-link::after {
+    display: none;
+  }
+
+  .nav-dropdown {
+    width: 100%;
+  }
+
+  .dropdown-trigger {
+    width: 100%;
+    justify-content: space-between;
+    padding: 12px 0;
+  }
+
+  .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    background: rgba(255, 255, 255, 0.05);
+    margin-top: 10px;
+    display: none;
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+
+  .nav-dropdown.active .dropdown-menu {
+    display: block;
+  }
+
+  .dropdown-menu a {
+    padding: 10px 20px;
+  }
+
+  .nav-icons {
+    gap: 12px;
+    margin-top: 10px;
+  }
+
+  .icon-btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .apply-button {
+    padding: 8px 18px;
+    font-size: 12px;
+  }
+
+  .logo-text {
+    font-size: 18px;
+  }
+
+  .logo-tagline {
+    font-size: 9px;
+  }
+
+  .logo-image {
+    height: 45px;
+  }
+}
+
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0 4%;
+    height: 70px;
+  }
+
+  .navbar.scrolled {
+    height: 60px;
+  }
+
+  .nav-menu {
+    top: 70px;
+    height: calc(100vh - 70px);
+    max-width: 100%;
+    padding: 30px 5%;
+  }
+
+  .navbar.scrolled .nav-menu {
+    top: 60px;
+    height: calc(100vh - 60px);
+  }
+
+  .logo-text {
+    font-size: 16px;
+  }
+
+  .logo-tagline {
+    font-size: 8px;
+    letter-spacing: 1.5px;
+  }
+
+  .logo-image {
+    height: 38px;
+  }
+
+  .apply-button {
+    padding: 6px 14px;
+    font-size: 11px;
+  }
+
+  .icon-btn {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* Tablet Landscape (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .nav-menu {
+    gap: 24px;
+    margin-right: 20px;
+  }
+  
+  .nav-link {
+    font-size: 13px;
+  }
+
+  .apply-button {
+    padding: 8px 18px;
+  }
+}
+
+/* ============================================ */
+/* ANIMATIONS & UTILITIES */
+/* ============================================ */
+
+/* Smooth scroll offset for anchor links */
+html {
+  scroll-padding-top: 80px;
+  scroll-behavior: smooth;
+}
+
+/* EDIT: Navbar entrance animation */
+@keyframes navbarSlideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.navbar {
+  animation: navbarSlideDown 0.6s ease-out;
+}
+
+/* ============================================ */
+/* ACCESSIBILITY - Focus styles */
+/* ============================================ */
+.nav-link:focus-visible,
+.dropdown-trigger:focus-visible,
+.apply-button:focus-visible,
+.hamburger:focus-visible {
+  outline: 2px solid var(--teal-l);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Prevent body scroll when mobile menu is open */
+body.menu-open {
+  overflow: hidden;
+}
+
+/* Remove default focus ring for mouse users */
+.nav-link:focus:not(:focus-visible),
+.dropdown-trigger:focus:not(:focus-visible),
+.apply-button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ============================================ */
+/* PRINT STYLES - Hide navbar when printing */
+/* ============================================ */
+@media print {
+  .navbar {
+    display: none;
+  }
+  
+  html {
+    scroll-padding-top: 0;
+  }
+}

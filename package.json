@@ -1,0 +1,21 @@
+{
+  "name": "frontend",
+  "private": true,
+  "version": "0.0.0",
+  "homepage": "https://aaron12-c.github.io/kriworthproject",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "react-router-dom": "^7.16.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
+}

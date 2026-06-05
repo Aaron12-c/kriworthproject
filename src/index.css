@@ -1,0 +1,12 @@
+@import "tailwindcss";
+/* Add to your index.css or App.css */
+body {
+  padding-top: 80px; /* Creates space for fixed navbar */
+}
+
+/* On mobile */
+@media (max-width: 768px) {
+  body {
+    padding-top: 70px;
+  }
+}
