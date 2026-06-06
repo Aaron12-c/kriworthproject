@@ -9,6 +9,12 @@ import heroImg3 from '../assets/hero image 2.png';
 import image1 from '../assets/image.png';
 import image2 from '../assets/image 2.png';
 
+// Import custom icons for "Who We Serve" section
+import trendingIcon from '../assets/trending_up_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png';
+import plantIcon from '../assets/potted_plant_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png';
+import handshakeIcon from '../assets/handshake_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png';
+import scaleIcon from '../assets/scale_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png';
+
 const HomePages = () => {
   const [, setIsVisible] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -125,24 +131,48 @@ const HomePages = () => {
           </div>
           <div className="serve-grid">
             <div className="serve-card">
-              <div className="serve-icon"><i className="ti ti-businessplan"></i></div>
+              <div className="serve-icon">
+                <img 
+                  src={trendingIcon} 
+                  alt="Growth-stage SMEs icon"
+                  className="serve-icon-img"
+                />
+              </div>
+              <h3>Growth-stage SMEs</h3>
+              <p>You are established and ready for the next level. You need audited statements, a strong business plan, and the right funding connection.</p>
+            </div>
+            <div className="serve-card">
+              <div className="serve-icon">
+                <img 
+                  src={plantIcon} 
+                  alt="Early-stage businesses icon"
+                  className="serve-icon-img"
+                />
+              </div>
               <h3>Early-stage businesses</h3>
               <p>You are generating revenue but have no formal financial structure. We help you build the foundation that lenders and funders need to see.</p>
             </div>
             <div className="serve-card">
-              <div className="serve-icon"><i className="ti ti-cash"></i></div>
+              <div className="serve-icon">
+                <img 
+                  src={handshakeIcon} 
+                  alt="Businesses seeking funding icon"
+                  className="serve-icon-img"
+                />
+              </div>
               <h3>Businesses seeking funding</h3>
               <p>You need a loan, a grant, or an investor but do not know if you qualify or where to start. We walk you through the full readiness journey.</p>
             </div>
             <div className="serve-card">
-              <div className="serve-icon"><i className="ti ti-certificate"></i></div>
+              <div className="serve-icon">
+                <img 
+                  src={scaleIcon} 
+                  alt="Businesses needing compliance icon"
+                  className="serve-icon-img"
+                />
+              </div>
               <h3>Businesses needing compliance</h3>
               <p>You want to formalise, register, and make sure your business is legally and financially structured. We provide the guidance and the tools.</p>
-            </div>
-            <div className="serve-card">
-              <div className="serve-icon"><i className="ti ti-chart-line"></i></div>
-              <h3>Growth-stage SMEs</h3>
-              <p>You are established and ready for the next level. You need audited statements, a strong business plan, and the right funding connection.</p>
             </div>
           </div>
         </div>
@@ -282,7 +312,7 @@ const HomePages = () => {
               </div>
               <div className="journey-item">
                 <div className="journey-item-label">Progress Visibility</div>
-                <div className="journey-item-text">Clients who see their progress stay longer. Milestone acknowledgements and score improvements drive continued engagement.</div>
+                <div className="journey-item-text">Clients who see their progress stay longer. Milestone acknowledgements and milestone improvements drive continued engagement.</div>
               </div>
             </div>
             <div className="journey-col">

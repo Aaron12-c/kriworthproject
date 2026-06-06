@@ -1,0 +1,896 @@
+/* frontend/src/Pages/Program.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --navy: #0A1628;
+  --navy2: #162952;
+  --teal: #0B7A6E;
+  --teal-l: #13A494;
+  --teal-ll: #D8F0EE;
+  --gold: #C4952A;
+  --gold-l: #E8C06A;
+  --white: #fff;
+  --stone: #F8F6F1;
+  --lgrey: #F4F6F8;
+  --grey: #6B7280;
+  --dgrey: #374151;
+  --border: #E5E7EB;
+  --success: #10B981;
+  --error: #EF4444;
+  --warning: #F59E0B;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ========== PROGRAM HERO SECTION ========== */
+.program-hero {
+  position: relative;
+  min-height: 70vh;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 5% 80px;
+  overflow: hidden;
+}
+
+.program-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.05"><path fill="none" d="M10,50 L50,10 L90,50 L50,90 Z"/><circle cx="50" cy="50" r="30"/></svg>') repeat;
+  opacity: 0.1;
+}
+
+.program-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.program-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(11, 122, 110, 0.2);
+  border: 1px solid rgba(11, 122, 110, 0.3);
+  border-radius: 20px;
+  padding: 6px 16px;
+  margin-bottom: 28px;
+}
+
+.program-hero-badge i {
+  color: var(--teal-l);
+  font-size: 0.875rem;
+}
+
+.program-hero-badge span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--teal-l);
+  letter-spacing: 0.05em;
+}
+
+.program-hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.2;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.program-hero-description {
+  font-size: clamp(0.875rem, 2vw, 1.0625rem);
+  line-height: 1.7;
+  color: #8898B8;
+  margin-bottom: 2.5rem;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 300;
+}
+
+.program-stats {
+  display: flex;
+  gap: 2.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.stat-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--teal-l);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: #8898B8;
+  font-weight: 400;
+}
+
+/* ========== SECTION COMMONS ========== */
+section {
+  padding: 5rem 0;
+}
+
+.section-tag {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--teal);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.875rem, 3.5vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--navy);
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: var(--grey);
+  line-height: 1.6;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+
+/* ========== PROGRAMME DAYS SECTION ========== */
+.programme-days {
+  background: var(--stone);
+}
+
+.days-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.days-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.day-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.day-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.day-number {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--teal);
+  background: var(--teal-ll);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.day-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 1.25rem;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.day-topics {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.day-topics li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--dgrey);
+  line-height: 1.5;
+}
+
+.day-topics li i {
+  color: var(--teal);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* ========== BENEFITS SECTION ========== */
+.benefits-section {
+  background: var(--white);
+}
+
+.benefits-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.benefit-card {
+  text-align: center;
+  padding: 2rem;
+  border-radius: 16px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  border-color: var(--teal-l);
+}
+
+.benefit-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1.25rem;
+  background: linear-gradient(135deg, var(--teal-ll) 0%, #E8F7F4 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.benefit-card:hover .benefit-icon {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-l) 100%);
+}
+
+.benefit-icon i {
+  font-size: 1.75rem;
+  color: var(--teal);
+  transition: color 0.3s ease;
+}
+
+.benefit-card:hover .benefit-icon i {
+  color: var(--white);
+}
+
+.benefit-card h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.75rem;
+}
+
+.benefit-card p {
+  font-size: 0.875rem;
+  color: var(--grey);
+  line-height: 1.6;
+}
+
+/* ========== COHORTS SECTION ========== */
+.cohorts-section {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
+}
+
+.cohorts-section .section-tag {
+  color: var(--teal-l);
+}
+
+.cohorts-section .section-title {
+  color: var(--white);
+}
+
+.cohorts-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.cohorts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.cohort-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.75rem;
+  transition: all 0.3s ease;
+}
+
+.cohort-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--teal-l);
+}
+
+.cohort-date, .cohort-spots {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 0.9375rem;
+  color: var(--white);
+}
+
+.cohort-date i, .cohort-spots i {
+  color: var(--teal-l);
+  font-size: 1.125rem;
+}
+
+.cohort-status {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.status-open {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34D399;
+}
+
+.status-full {
+  background: rgba(245, 158, 11, 0.2);
+  color: #FBBF24;
+}
+
+/* ========== REGISTRATION SECTION ========== */
+.registration-section {
+  background: var(--white);
+  padding: 5rem 0;
+}
+
+.registration-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.registration-info {
+  position: sticky;
+  top: 100px;
+}
+
+.registration-info .section-tag {
+  margin-bottom: 1rem;
+}
+
+.registration-info .section-title {
+  margin-bottom: 1rem;
+}
+
+.registration-info .section-subtitle {
+  margin-bottom: 2rem;
+}
+
+.info-box {
+  display: flex;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: var(--lgrey);
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.info-box:hover {
+  transform: translateX(4px);
+  background: var(--teal-ll);
+}
+
+.info-box i {
+  font-size: 1.5rem;
+  color: var(--teal);
+  flex-shrink: 0;
+}
+
+.info-box h4 {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.25rem;
+}
+
+.info-box p {
+  font-size: 0.8125rem;
+  color: var(--grey);
+  line-height: 1.5;
+}
+
+.registration-form-wrapper {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+}
+
+.success-message {
+  background: linear-gradient(135deg, #D1FAE5 0%, #A7F3D0 100%);
+  border: 1px solid var(--success);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  animation: slideDown 0.5s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.success-message i {
+  font-size: 3rem;
+  color: var(--success);
+  margin-bottom: 0.5rem;
+}
+
+.success-message h3 {
+  font-size: 1.125rem;
+  color: #065F46;
+  margin-bottom: 0.5rem;
+}
+
+.success-message p {
+  font-size: 0.875rem;
+  color: #065F46;
+}
+
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--navy);
+}
+
+.form-group input,
+.form-group select {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  background: var(--white);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(11, 122, 110, 0.1);
+}
+
+.form-group input:hover,
+.form-group select:hover {
+  border-color: var(--teal-l);
+}
+
+.register-button {
+  background: var(--teal);
+  color: var(--white);
+  padding: 0.875rem 1.75rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.register-button:hover:not(:disabled) {
+  background: #085041;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(11, 122, 110, 0.3);
+}
+
+.register-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.register-button i {
+  font-size: 1rem;
+}
+
+.form-note {
+  font-size: 0.75rem;
+  color: var(--grey);
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+/* ========== TESTIMONIALS SECTION ========== */
+.testimonials-section {
+  background: var(--stone);
+}
+
+.testimonials-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.testimonial-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 2rem;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-card i {
+  font-size: 2rem;
+  color: var(--teal-l);
+  opacity: 0.3;
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+}
+
+.testimonial-card p {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--dgrey);
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.testimonial-author {
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+}
+
+.testimonial-author strong {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--navy);
+  margin-bottom: 0.25rem;
+}
+
+.testimonial-author span {
+  font-size: 0.75rem;
+  color: var(--grey);
+}
+
+/* ========== PROGRAM CTA SECTION ========== */
+.program-cta {
+  background: linear-gradient(135deg, var(--teal) 0%, #085041 100%);
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.cta-wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.cta-wrapper h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.cta-wrapper p {
+  font-size: 0.9375rem;
+  color: var(--teal-ll);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.cta-wrapper .btn-primary {
+  background: var(--white);
+  color: var(--teal);
+  padding: 0.875rem 2rem;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.cta-wrapper .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background: var(--teal-ll);
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+
+/* Tablet (768px - 1024px) */
+@media (max-width: 1024px) {
+  section {
+    padding: 4rem 0;
+  }
+  
+  .registration-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .registration-info {
+    position: static;
+  }
+  
+  .days-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+/* Mobile (600px - 768px) */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+  
+  .program-hero {
+    min-height: 60vh;
+    padding: 100px 5% 60px;
+  }
+  
+  .program-stats {
+    gap: 1.5rem;
+  }
+  
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .cohorts-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .registration-form-wrapper {
+    padding: 1.5rem;
+  }
+}
+
+/* Small Mobile (320px - 600px) */
+@media (max-width: 600px) {
+  section {
+    padding: 3rem 0;
+  }
+  
+  .program-hero-title {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+  }
+  
+  .program-hero-description {
+    font-size: 0.875rem;
+  }
+  
+  .program-stats {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .day-card {
+    padding: 1.5rem;
+  }
+  
+  .day-card h3 {
+    font-size: 1.25rem;
+  }
+  
+  .benefit-card {
+    padding: 1.5rem;
+  }
+  
+  .cohort-card {
+    padding: 1.25rem;
+  }
+  
+  .registration-form-wrapper {
+    padding: 1rem;
+  }
+  
+  .info-box {
+    padding: 1rem;
+  }
+  
+  .testimonial-card {
+    padding: 1.5rem;
+  }
+  
+  .testimonial-card i {
+    font-size: 1.5rem;
+    top: 1rem;
+    right: 1rem;
+  }
+  
+  .cta-wrapper h2 {
+    font-size: 1.5rem;
+  }
+  
+  .cta-wrapper p {
+    font-size: 0.875rem;
+  }
+}
+
+/* Extra Small Mobile (up to 360px) */
+@media (max-width: 360px) {
+  .day-card h3 {
+    font-size: 1.125rem;
+  }
+  
+  .day-topics li {
+    font-size: 0.8125rem;
+  }
+  
+  .benefit-card h3 {
+    font-size: 1rem;
+  }
+  
+  .benefit-card p {
+    font-size: 0.8125rem;
+  }
+}
+
+/* Large Desktop (1440px+) */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1400px;
+  }
+  
+  section {
+    padding: 6rem 0;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .program-hero {
+    background: var(--white);
+    color: var(--navy);
+    min-height: auto;
+  }
+  
+  .program-hero-title {
+    color: var(--navy);
+  }
+  
+  .register-button,
+  .program-cta,
+  .cohorts-section,
+  .registration-form-wrapper,
+  .benefit-card:hover,
+  .day-card:hover {
+    break-inside: avoid;
+  }
+  
+  .btn-primary,
+  .register-button {
+    display: none;
+  }
+}
+
+/* Animation for fade-in elements */
+.fade-in {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Loading animation for button */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.register-button i.ti-loader {
+  animation: spin 1s linear infinite;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}

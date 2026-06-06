@@ -328,47 +328,68 @@ section {
 .serve-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.25rem;
-  text-align: left;
+  gap: 1.5rem;
+  text-align: center;
 }
 
 .serve-card {
   background: var(--white);
-  border-radius: 12px;
-  padding: 1.75rem;
-  border: 0.5px solid var(--border);
-  transition: transform 0.2s, box-shadow 0.2s;
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+  text-align: center;
 }
 
 .serve-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
+  border-color: var(--teal-l);
 }
 
+/* Updated Icon Styles for PNG Images */
 .serve-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  background: var(--teal-ll);
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.125rem;
-  color: var(--teal);
-  font-size: 1.375rem;
+  background: linear-gradient(135deg, var(--teal-ll) 0%, #E8F7F4 100%);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.serve-card:hover .serve-icon {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, var(--teal-l) 0%, var(--teal) 100%);
+}
+
+.serve-icon-img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%) invert(28%) sepia(87%) saturate(1234%) hue-rotate(148deg) brightness(94%) contrast(92%);
+  transition: filter 0.3s ease;
+}
+
+.serve-card:hover .serve-icon-img {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
 }
 
 .serve-card h3 {
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 1.125rem;
+  font-weight: 700;
   color: var(--navy);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
 }
 
 .serve-card p {
   font-size: 0.875rem;
   color: var(--grey);
   line-height: 1.65;
+  margin: 0;
 }
 
 /* ========== SERVICES ========== */
@@ -986,6 +1007,17 @@ section {
   .nav-dot.active {
     width: 20px;
   }
+  
+  /* Adjust serve icons for tablet */
+  .serve-icon {
+    width: 56px;
+    height: 56px;
+  }
+  
+  .serve-icon-img {
+    width: 28px;
+    height: 28px;
+  }
 }
 
 /* Mobile (320px - 600px) */
@@ -1023,6 +1055,20 @@ section {
   
   .serve-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .serve-card {
+    padding: 1.5rem;
+  }
+  
+  .serve-icon {
+    width: 52px;
+    height: 52px;
+  }
+  
+  .serve-icon-img {
+    width: 26px;
+    height: 26px;
   }
   
   .service-card {
@@ -1089,6 +1135,16 @@ section {
     padding: 1.25rem;
   }
   
+  .serve-icon {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .serve-icon-img {
+    width: 24px;
+    height: 24px;
+  }
+  
   .service-card h3 {
     font-size: 0.875rem;
   }
@@ -1114,6 +1170,16 @@ section {
   
   .hero-sub {
     font-size: 1.125rem;
+  }
+  
+  .serve-icon {
+    width: 72px;
+    height: 72px;
+  }
+  
+  .serve-icon-img {
+    width: 36px;
+    height: 36px;
   }
 }
 
