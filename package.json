@@ -1,16 +1,21 @@
 {
-  "name": "frontend",
+  "name": "kriworth-frontend",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Kriworth Growth Solutions - Advisory and digital tools for Nigerian MSMEs",
   "homepage": "https://aaron12-c.github.io/kriworthproject",
   "type": "module",
+  "author": "Aaron Hope",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
     "preview": "vite preview",
+    "lint": "eslint .",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "deploy:clean": "gh-pages -d dist --no-history",
+    "build:clean": "rimraf dist && npm run build"
   },
   "dependencies": {
     "react-router-dom": "^7.16.0"
